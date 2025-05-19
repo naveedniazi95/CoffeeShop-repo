@@ -1,5 +1,5 @@
 /* importing google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 * {
   margin: 0;
@@ -122,7 +122,7 @@ header .navbar {
   background: var(--secondry-color);
 }
 
-.navbar :where(#menu-close-button, #menu-open-button){
+.navbar :where(#menu-close-button, #menu-open-button) {
   display: none;
 }
 
@@ -411,4 +411,145 @@ header .navbar {
 .footer-section .policy-text .separator {
   margin: 0.5px;
   color: var(--white-color);
+}
+
+@media screen and (max-width: 1024px) {
+  .menu-section .menu-list {
+    gap: 60px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --font-size-m: 1rem;
+    --font-size-l: 1.3rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 1.8rem;
+  }
+
+  body.show-mobile-menu header::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar :where(#menu-close-button, #menu-open-button) {
+    display: block;
+    font-size: var(--font-size-xxl);
+  }
+
+  .navbar #menu-close-button {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+
+  .navbar #menu-open-button {
+    color: var(--white-color);
+  }
+
+  .navbar .nav-menu {
+    display: block;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 75px;
+    background: var(--white-color);
+    transition: left 0.2s ease;
+  }
+
+  body.show-mobile-menu .navbar .nav-menu {
+    left: 0;
+  }
+
+  .navbar .nav-menu .nav-link {
+    color: var(--dark-color);
+    display: block;
+    margin-top: 17px;
+    font-size: var(--font-size-l);
+  }
+
+  .hero-section .section-content {
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px 20px;
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
+
+  .hero-section .hero-details :is(.subtitle, .description),
+  .about-section .about-details,
+  .contact-section .contact-form {
+    max-width: 100%;
+  }
+
+  .hero-section .hero-details .buttons {
+    justify-content: center;
+  }
+
+  .hero-section .hero-image-wrapper {
+    max-width: 270px;
+    margin-right: 0;
+  }
+
+  .about-section .section-content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .about-section .about-image-wrapper .about-img {
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    aspect-ratio: 1;
+  }
+
+  .menu-section .menu-list {
+    gap: 30px;
+  }
+
+  .menu-section .menu-list .menu-item {
+    width: calc(100% / 2 - 30px);
+  }
+
+  .menu-section .menu-list .menu-item .menu-image {
+    width: 200px;
+  }
+
+  .gallery-section .gllery-list {
+    gap: 30px;
+  }
+
+  .gallery-section .gllery-list .gallery-item {
+    width: calc(100% / 2 - 30px);
+  }
+
+  .contact-section .section-content {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .menu-section .menu-list {
+    gap: 60px;
+  }
+  .menu-section .menu-list .menu-item,
+  .gallery-section .gllery-list .gallery-item {
+    width: 100%;
+  }
+  .footer-section .section-content {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
